@@ -4,10 +4,52 @@ const operatorButtons = document.querySelectorAll(`[data-func*="operator"]`);
 const evalBtn = document.querySelector(`[data-func*="eval"]`);
 const delBtn = document.querySelector(`[data-func*="delete"]`);
 const clearBtn = document.querySelector(`[data-func*="clear"]`);
-let displayValue = Number(outputDisplay.innerText);
-let operand1 = '', operand2 = '';
+let displayValue = outputDisplay.innerText;
+let operand1 = '', operand2 = '', isSecondOperand = false;
+let operation = null;
 
-const display = (value) => {
+numButtons.forEach((numBtn) => {
+    numBtn.addEventListener('click', appendNumber);
+});
+
+operatorButtons.forEach((opBtn) => {
+    opBtn.onclick = (e) => {
+        setOperand();
+        operand1 = eval(operand1, operand2, operation);
+        isSecondOperand = true;
+        display('0');
+        operation = e.target.textContent;
+    }
+})
+
+clearBtn.onclick = () => clear();
+delBtn.onclick = () => del();
+
+evalBtn.addEventListener('click', equals);
+
+function equals(){
+    setOperand();
+    let answer = eval(operand1, operand2, operation);
+    console.log(answer);
+    display(answer);
+    isSecondOperand = false;
+    operand1 = '';
+    operand2 = '';
+    operation = null; 
+}
+
+function appendNumber(e) {
+    let num = e.target.textContent
+    console.log(num);
+    if (displayValue == 0) {
+        display(num)
+    } else {
+        value = displayValue + num;
+        display(value);
+    }
+}
+
+function display(value) {
     outputDisplay.textContent = value;
     displayValue = value;
     outputDisplay.animate([
@@ -19,23 +61,48 @@ const display = (value) => {
     })
 }
 
-const clear = () => {
+function clear() {
     display(0);
 }
 
-const appendNumber = (e) => {
-    let num = Number(e.target.textContent)
-    console.log(num);
-    if (displayValue === 0) {
-        display(num)
-    } else {
-        value = (displayValue * 10) + num;
-        display(value);
+function del() {
+    if (displayValue != 0) {
+        let value = displayValue.slice(0, -1)
+        value ? display(value) : clear(0);
     }
 }
 
-numButtons.forEach((numBtn) => {
-    numBtn.addEventListener('click', appendNumber);
-});
+function setOperand(){
+    if(!isSecondOperand){
+        operand1 = displayValue;
+    }
+    else if(isSecondOperand){
+        if(displayValue == '0'){
+            operand2 = '';
+        }
+        else operand2 = displayValue;
+    }
+}
 
-clearBtn.onclick = () => clear();
+function eval(op1, op2, opn) {
+    op1 = parseFloat(op1);
+    op2 = parseFloat(op2);
+    if (op2 === '' || opn === null) return op1;
+    switch (opn) {
+        case '+':
+            return add(op1, op2).toString();
+        case '−':
+            return subtract(op1, op2).toString();
+        case '×':
+            return multiply(op1, op2).toString();
+        case '÷':
+            return divide(op1, op2).toString();
+        default:
+            return;           
+    }
+}
+
+function add(op1, op2) { return op1 + op2 };
+function subtract(op1, op2) { return op1 - op2 };
+function multiply(op1, op2) { return op1 * op2 };
+function divide(op1, op2) { return op1 / op2 };

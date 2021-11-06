@@ -18,13 +18,14 @@ body {
 
 .screen {
     text-align: end;
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 2.5rem;
+    font-weight: 400;
     color: white;
     background-color: black;
     padding: 2rem;
     border-radius: 600px;
     margin: 18px 15px;
+    letter-spacing: 3px;
 }
 
 .calc-button-row {
