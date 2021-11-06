@@ -32,20 +32,21 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 18px;
+    gap: 15px;
 }
 
 .calc-button {
     flex: 1;
     aspect-ratio: 1;
-    margin: 0px 2px;
-    
-    border: black;
-    border-style: solid;
-    border-width: 5px;
+
+    border: none;
+    outline: black;
+    outline-style: solid;
+    outline-width: 6px;
     border-radius: 600px;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    font-size: 200%;
+    font-size: 215%;
     background: white;
 }
 
@@ -58,20 +59,16 @@ body {
 }
 
 .calc-button.double {
-    flex: 2;
+    flex: 2.399;
     aspect-ratio: unset;
     background-color:aliceblue;
-    margin-right: 8px;
 }
 
 .calc-button.triple {
-    flex: 3;
+    flex: 3.797;
     aspect-ratio: unset;
     background-color: coral;
-    margin-left: 10px;
 }
-
-
 
 [data-func *= "operator"] {
     background-color: lightblue;
@@ -106,8 +103,17 @@ button {
         font-size: 150%;
     }
 
+    .calc-button.triple {
+        flex: 4.263;
+    }
+
+    .calc-button.double {
+        flex: 2.632;
+    }
+
     .screen {
         font-size: 2rem;
         padding: 1.5rem;
     }
+
 }
