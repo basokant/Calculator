@@ -4,6 +4,7 @@ const operatorButtons = document.querySelectorAll(`[data-func*="operator"]`);
 const evalBtn = document.querySelector(`[data-func*="eval"]`);
 const delBtn = document.querySelector(`[data-func*="delete"]`);
 const clearBtn = document.querySelector(`[data-func*="clear"]`);
+
 let displayValue = outputDisplay.innerText;
 let operand1 = '', operand2 = '', isSecondOperand = false;
 let operation = null;
@@ -102,7 +103,10 @@ function eval(op1, op2, opn) {
     }
 }
 
-function add(op1, op2) { return op1 + op2 };
-function subtract(op1, op2) { return op1 - op2 };
-function multiply(op1, op2) { return op1 * op2 };
-function divide(op1, op2) { return op1 / op2 };
+function add(op1, op2) { return op1 + op2 }
+function subtract(op1, op2) { return op1 - op2 }
+function multiply(op1, op2) { return op1 * op2 }
+function divide(op1, op2) { 
+    if (op2 === 0) console.log("don't crash pls.");
+    return op2 != 0 ? (op1 / op2) : 0
+}

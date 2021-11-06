@@ -60,7 +60,7 @@ body {
 .calc-button.double {
     flex: 2;
     aspect-ratio: unset;
-    background-color: aqua;
+    background-color:aliceblue;
     margin-right: 8px;
 }
 
@@ -78,11 +78,11 @@ body {
 }
 
 [data-func = "delete"] {
-    background-color:darkseagreen
+    background-color:cornflowerblue;
 }
 
 [data-func *= "num"] {
-    background-color: bisque;
+    background-color:cornsilk;
 }
 
 button {
