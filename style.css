@@ -95,4 +95,19 @@ button {
                 background-image 250ms ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 850px) {
+    .calc {
+        width: 300px;
+    }
+    .calc-button {
+        font-size: 150%;
+    }
+
+    .screen {
+        font-size: 2rem;
+        padding: 1.5rem;
+    }
 }
