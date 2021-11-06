@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+.calc {
+    width: 400px;
+    outline-width: 10px;
+    outline-style: solid;
+    border-radius: 50px;
+}
+
+.screen {
+    text-align: end;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    background-color: black;
+    padding: 2rem;
+    border-radius: 600px;
+    margin: 18px 15px;
+}
+
+.calc-button-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px;
+}
+
+.calc-button {
+    flex: 1;
+    aspect-ratio: 1;
+    margin: 0px 2px;
+    
+    border: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 600px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 200%;
+    background: white;
+}
+
+.calc-button:hover {
+    transform: scale(1.03);
+}
+
+.calc-button:active {
+    transform: scale(0.90);
+}
+
+.calc-button.double {
+    flex: 2;
+    aspect-ratio: unset;
+    background-color: aqua;
+    margin-right: 8px;
+}
+
+.calc-button.triple {
+    flex: 3;
+    aspect-ratio: unset;
+    background-color: coral;
+    margin-left: 10px;
+}
+
+
+
+[data-func *= "operator"] {
+    background-color: lightblue;
+}
+
+[data-func = "delete"] {
+    background-color:darkseagreen
+}
+
+[data-func *= "num"] {
+    background-color: bisque;
+}
+
+button {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease,
+                background-image 250ms ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
